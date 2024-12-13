@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>選課須知</title>
+
+    <link rel="icon" href="./img/nav_pic.png"> 
+
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
+  }
+  
+  .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  }
+  
+  .navbar-logo {
+    margin-left: 205px;
+  }
+
+  .navbar-logo img {
+    width: 50%;
+    height: 50%;
+  }
+
+  .nav-container {
+  display: flex;
+  align-items: center;
+  margin-right: 205px;
+  }
+  
+  .main-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-right: 2rem;
+  }
+  
+  .nav-item {
+  position: relative;
+  }
+  
+  .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+  color: var(--text-color);
+  }
+  
+  .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  background-color: #333;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  }
+  
+  .nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  }
+  
+  .dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: rgba(166, 166, 166, 0.7);
+  text-decoration: none;
+  transition: background-color 0.3s;
+  }
+  
+  .dropdown-item:hover {
+  background-color: #444;
+  color: #ffffff;
+  }
+  
+  .search-container {
+  position: relative;
+  width: 16rem;
+  }
+  
+  .search-input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  }
+  
+  .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  }
+
+  
+h2 {
+  font-size: 24px;
+  margin-top: 40px;
+}
+.course-categories {
+  width: 400px;
+  height: 400px;
+  margin: 40px auto;
+  position: relative;
+  background: radial-gradient(
+    circle,
+    rgba(255, 65, 54, 0.2) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  border-radius: 50%;
+}
+.category {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.category:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-right: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+.category:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-bottom: 1px solid #333;
+}
+.category:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-right: 1px solid #333;
+}
+.category:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+.colleges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.college {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 5px;
+}
+.college h3 {
+  margin: 0;
+  font-size: 18px;
+}
+.college p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #999;
+}
+.college .credits {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #333;
+  font-size: 14px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th,
+td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: center;
+}
+th {
+  background-color: #222;
+}
+footer {
+  background-color: black;  /* 黑色底色 */
+  color: white;             /* 白色文字 */
+  text-align: center;       /* 文字置中 */
+  padding: 5px 0;          /* 上下內邊距 */        /* 固定在頁面底部 */
+  bottom: 0;
+  width: 100%;              /* 佔滿整個頁面寬度 */
+}
+
+    </style>
+    
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="navbar-logo">
+          <a href="index.html">
+        <img src="./img/nav_pic.png">
+      </a>
+        </div>
+        <div class="nav-container">
+          <nav class="main-nav">
+            <div class="nav-item">
+              <a href="page_6.0.html" class="nav-link">選課須知</a>
+            </div>
+  
+            <div class="nav-item">
+              <a href="page_3.0.html" class="nav-link">院系/通識課程</a>
+              <div class="dropdown">
+                <a href="page_3.0.html" class="dropdown-item">設計學院</a>
+                <a href="page_3.0.html" class="dropdown-item">美術學院</a>
+                <a href="page_3.0.html" class="dropdown-item">傳播學院</a>
+                <a href="page_3.0.html" class="dropdown-item">表演學院</a>
+                <a href="page_3.0.html" class="dropdown-item">人文學院</a>
+                <a href="page_3.0.html" class="dropdown-item">體育學院</a>
+              </div>
+            </div>
+            <div class="nav-item">
+              <a href="./page_3.2.html" class="nav-link">課程討論</a>
+              <div class="dropdown">
+                <a href="./page_1.1.html" class="dropdown-item">討論區</a>
+                <a href="page_2.0.html" class="dropdown-item">最高評價</a>
+                <a href="page_1.0.html" class="dropdown-item">熱門討論</a>
+              </div>
+            </div>
+            <div class="nav-item">
+                <a href="./page_4.0.html" class="nav-link">換課區</a>
+                <div class="dropdown">
+                  <a href="./page_4.0.html" class="dropdown-item">許願</a>
+                  <a href="page_2.0.html" class="dropdown-item">交換</a>
+                </div>
+              </div>
+            <a href="page_5.0.html" class="nav-link">登入</a>
+          </nav>
+  
+        </div>
+      </header>
+
+      <main>
+        <h2>學分種類</h2>
+        <div class="course-categories">
+          <div class="category">
+            <div><strong>系必修</strong><br />系選</div>
+          </div>
+          <div class="category">
+            <div><strong>通識教</strong><br />育中心</div>
+          </div>
+          <div class="category">
+            <div><strong>院必修</strong><br />院選</div>
+          </div>
+          <div class="category">
+            <div><strong>其他、</strong><br />跨域、體育</div>
+          </div>
+        </div>
+
+        <h2>各系科目學分表總覽</h2>
+        <div class="colleges">
+          <div class="college">
+            <h3>美術學院</h3>
+            <p>College of Fine Arts</p>
+            <div class="credits">課程科目學分表</div>
+          </div>
+          <div class="college">
+            <h3>設計學院</h3>
+            <p>College of Design</p>
+            <div class="credits">課程科目學分表</div>
+          </div>
+          <div class="college">
+            <h3>傳播學院</h3>
+            <p>College of Communication</p>
+            <div class="credits">課程科目學分表</div>
+          </div>
+          <div class="college">
+            <h3>表演藝術學院</h3>
+            <p>College of Performing Arts</p>
+            <div class="credits">課程科目學分表</div>
+          </div>
+          <div class="college">
+            <h3>人文學院</h3>
+            <p>College of Liberal Arts</p>
+            <div class="credits">課程科目學分表</div>
+          </div>
+          <div class="college">
+            <h3>體育教學中心</h3>
+            <p>Physical Education Center</p>
+            <div class="credits">課程科目學分表</div>
+          </div>
+        </div>
+
+        <h2>上課節次時間表</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>節次</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7</th>
+              <th>8</th>
+              <th>9</th>
+              <th>10</th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>時間</th>
+              <td>08:10<br />09:00</td>
+              <td>09:10<br />10:00</td>
+              <td>10:10<br />11:00</td>
+              <td>11:10<br />12:00</td>
+              <td>12:10<br />13:00</td>
+              <td>13:10<br />14:00</td>
+              <td>14:10<br />15:00</td>
+              <td>15:10<br />16:00</td>
+              <td>16:10<br />17:00</td>
+              <td>17:10<br />18:00</td>
+              <td>18:30<br />19:20</td>
+              <td>19:25<br />20:15</td>
+              <td>20:25<br />21:15</td>
+              <td>21:20<br />22:10</td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+
+      <footer>
+        <p>&copy; 220307新北市板橋區大觀路一段59號&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;電話：02-2272-2181&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;學校網址：https://www.ntua.edu.tw/</p>
+      </footer>
+    </div>
+  </body>
+</html>
